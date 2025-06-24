@@ -155,7 +155,7 @@ const ProjectList = [
     image: '/src/assets/projects/portfolio.png',
     title: 'Personal Website',
     demo: '#',
-    repo: 'https://github.com/manfromthefog',
+    repo: 'https://github.com/manfromthefog/mftf-portfolio',
     skills: ['Node.js', 'Vue.js', 'Tailwind CSS'],
     description: 'My portfolio website. Includes my projects, skills, timeline of events, and a mini-blog. Built using Vue3 and Tailwind CSS. The use of v-for signficantly simplified the component structure.',
   },
