@@ -29,7 +29,7 @@ import UnityLogo from '../assets/logos/stack/unity.png'
 const skills = [
   { src: JavaLogo, alt: 'Java', shadowColor: '#E51F2F' },
   { src: JupyterLogo, alt: 'Jupyter', shadowColor: '#E87125' },
-  { src: VoltaLogo, alt: 'Volta-Shim', shadowColor: '#eDcf3a' },
+  { src: VoltaLogo, alt: 'Volta', shadowColor: '#eDcf3a' },
   { src: PythonLogo, alt: 'Python', shadowColor: '#F1CA3F' },
   { src: JavaScriptLogo, alt: 'JavaScript', shadowColor: '#EDD619' },
   { src: VueLogo, alt: 'Vue.js', shadowColor: '#42b883' },
@@ -285,18 +285,18 @@ const ProjectList = [
     <!-- 🔷 Skill Tags (Above Projects) -->
     <section class="w-full">
       <h1 class="text-6xl font-normal mb-10">My Stack</h1>
-      <!-- grid-flow-col -->
+      <!--  -->
       <div class="grid grid-cols-10 gap-12 justify-start">
         <div
           v-for="skill in skills"
           :key="skill.alt"
           class="flex flex-col gap-2 group">
           <div
-            class="cursor-box cursor-pointer rounded-md flex items-center justify-center h-[80px] w-[80px] transition-transform duration-300"
+            class="cursor-box cursor-pointer rounded-md flex items-center justify-center h-full w-full transition-transform duration-300"
             :class="{ 'active-glow': activeSkills.has(skill.alt) }"
             @click="toggleSkill(skill.alt)"
             :style="{'--shadow-color': skill.shadowColor}">
-            <img :src="skill.src" :alt="skill.alt" class="h-auto w-[70%]" />
+            <img :src="skill.src" :alt="skill.alt" class="h-auto w-[70%] py-2" />
           </div>
           <p class="text-sm text-center text-gray-800 font-medium">{{ skill.alt }}</p>
         </div>
