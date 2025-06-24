@@ -1,11 +1,15 @@
 <script setup>
 import SocialLink from '../components/SocialLink.vue';
+import linkedinIcon from '../assets/icons/linkedin.svg';
+import githubIcon from '../assets/icons/github.svg';
+import youtubeIcon from '../assets/icons/youtube.svg';
+import instagramIcon from '../assets/icons/instagram.svg';
 
 const socialLinks = [
-  { src: '/src/assets/icons/linkedin.svg', alt: 'LinkedIn', href: 'https://www.linkedin.com/in/qinkai-li-40198b31a/' },
-  { src: '/src/assets/icons/github.svg', alt: 'GitHub', href: 'https://github.com/kailiovermind-2314' },
-  { src: '/src/assets/icons/youtube.svg', alt: 'YouTube', href: 'https://www.youtube.com/@thepropertytheygiveyou' },
-  { src: '/src/assets/icons/instagram.svg', alt: 'Instagram', href: 'https://www.instagram.com/kailiovermind0112/' },
+  { src: linkedinIcon, alt: 'LinkedIn', href: 'https://www.linkedin.com/in/qinkai-li-40198b31a/' },
+  { src: githubIcon, alt: 'GitHub', href: 'https://github.com/kailiovermind-2314' },
+  { src: youtubeIcon, alt: 'YouTube', href: 'https://www.youtube.com/@thepropertytheygiveyou' },
+  { src: instagramIcon, alt: 'Instagram', href: 'https://www.instagram.com/kailiovermind0112/' },
 ];
 
 </script>
