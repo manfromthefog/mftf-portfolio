@@ -1,3 +1,42 @@
+<script setup>
+import linkedinIcon from '../assets/icons/linkedin.svg';
+import githubIcon from '../assets/icons/github.svg';
+import youtubeIcon from '../assets/icons/youtube.svg';
+import instagramIcon from '../assets/icons/instagram.svg';
+
+import phoneIcon from '../assets/icons/phone.svg';
+import emailIcon from '../assets/icons/email.svg';
+import locationIcon from '../assets/icons/location.svg';
+
+const contacts = [
+  {
+    type: 'phone',
+    link: 'tel:+1(403) 202-1058',
+    icon: phoneIcon,
+    text: '(403) 202-1058'
+  },
+  {
+    type: 'email',
+    link: 'mailto:infinityscrub74@gmail.com',
+    icon: emailIcon,
+    text: 'infinityscrub74@gmail.com'
+  },
+  {
+    type: 'location',
+    link: 'https://maps.app.goo.gl/Rg2KRVFbeasfGSmz6',
+    icon: locationIcon,
+    text: '290 Westmount Rd N, Waterloo, ON N2L 3G3'
+  }
+]
+
+const socialIcons = [
+  { href: 'https://www.linkedin.com/in/qinkai-li-40198b31a/', src: linkedinIcon, alt: 'linkedin' },
+  { href: 'https://github.com/manfromthefog', src: githubIcon, alt: 'GitHub' },
+  { href: 'https://www.youtube.com/@thepropertytheygiveyou', src: youtubeIcon, alt: 'youtube' },
+  { href: 'https://www.instagram.com/kailiovermind0112/', src: instagramIcon, alt: 'instagram' },
+]
+</script>
+
 <template>
   <div class="footer-container">
     <footer class="main-footer">
@@ -41,36 +80,6 @@
     </footer>
   </div>
 </template>
-
-<script setup>
-const contacts = [
-  {
-    type: 'phone',
-    link: 'tel:+1(403) 202-1058',
-    icon: '/src/assets/icons/phone.svg',
-    text: '(403) 202-1058'
-  },
-  {
-    type: 'email',
-    link: 'mailto:infinityscrub74@gmail.com',
-    icon: '/src/assets/icons/email.svg',
-    text: 'infinityscrub74@gmail.com'
-  },
-  {
-    type: 'location',
-    link: 'https://maps.app.goo.gl/Rg2KRVFbeasfGSmz6',
-    icon: '/src/assets/icons/location.svg',
-    text: '290 Westmount Rd N, Waterloo, ON N2L 3G3'
-  }
-]
-
-const socialIcons = [
-  { href: 'https://www.linkedin.com/in/qinkai-li-40198b31a/', src: '/src/assets/icons/linkedin.svg', alt: 'GitHub' },
-  { href: 'https://github.com/manfromthefog', src: '/src/assets/icons/github.svg', alt: 'GitHub' },
-  { href: 'https://www.youtube.com/@thepropertytheygiveyou', src: '/src/assets/icons/youtube.svg', alt: 'GitHub' },
-  { href: 'https://www.instagram.com/kailiovermind0112/', src: '/src/assets/icons/instagram.svg', alt: 'GitHub' },
-]
-</script>
 
 <style scoped>
 .footer-container {
