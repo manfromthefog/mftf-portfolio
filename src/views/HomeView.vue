@@ -48,7 +48,7 @@ const socialLinks = [
                   In high school, I was the lead executive for three organizations and played an executive role in countless others. Through the process I became interested in developing web solutions. In my senior years, I developed a passion for the natural sciences through the <span class="font-semibold">International Baccalaureate (IB) Diploma program.</span>
                 </p>
                 <p class="inline">
-                  I focused on applying my programming skills to model natural phenomena and developed a keen interest in modeling low-altitude ion propulsion systems. After all, that's what software engineering truly means to me.  
+                  I focused on applying my programming skills to model natural phenomena and developed a keen interest in modeling low-altitude ion propulsion systems. Developing solutions to real-world problems is what software engineering means to me.  
                 </p>
                 <p class="inline">
                   In my free time, I write poetry and play basketball!
