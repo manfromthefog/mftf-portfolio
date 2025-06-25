@@ -258,7 +258,7 @@ const ProjectList = [
     demo: '#',
     repo: 'https://github.com/manfromthefog/Containment-1',
     skills: ['Django', 'CSS', 'HTML5'],
-    description: 'My first full-stack HTML5 web application, featuring a form, basic CSS, Django middleware and a SQL database powered by a not-so-legal third-party API (a bit of hacking was necessary). Hence, I shut the app down.',
+    description: 'My first full-stack HTML5 web application built using Django, featuring several forms, basic CSS, Django middleware and a SQLite database. In a future I plan on implementing a UI rehaul.',
   },
   { id: 7,
     image: RuralIrrigationCover,
