@@ -209,17 +209,17 @@ import ContainmentCover from '../assets/projects/withermancy.png'
 import RuralIrrigationCover from '../assets/projects/irrigation.png'
 import FarlandsCover from '../assets/projects/farlands.png'
 
-const ProjectList = [
-  { id: 1,
+const ProjectList = ref([
+  { flipped: false,
     image: SkylineSurvivalCover,
     title: 'Skyline Survival',
     demo: '#',
     repo: 'https://github.com/manfromthefog/skyline-survival',
     skills: ['Unity', 'C#', '.NET',],
-    description: "A spin-off of Unity's Battle resource pack. Features a wave counter, smoother movement, new explosive powerups, and new enemies. Restoration is ongoing after a hardware incident.",
+    description: "A spin-off of Unity's Battle resource pack. Features a wave counter, smoother movement, new explosive powerups, and new enemies. The project was partially corrupted after a hardware incident, and restoration is ongoing.",
   },
   
-  { id: 2,
+  { flipped: false,
     image: PortfolioCover,
     title: 'Personal Website',
     demo: '#',
@@ -227,23 +227,23 @@ const ProjectList = [
     skills: ['Node.js', 'Vue.js', 'Tailwind CSS'],
     description: 'My portfolio website. Includes my projects, skills, timeline of events, and a mini-blog. Built using Vue3 and Tailwind CSS. The use of v-for signficantly simplified the component structure.',
   },
-  { id: 3,
+  { flipped: false,
     image: ChinookCuriosityCentralCover,
     title: 'Chinook Curiosity Central',
     demo: 'https://chinookcuriositycentral.vercel.app',
     repo: 'https://github.com/manfromthefog/chinookcuriositycentral',
     skills: ['HTML5', 'CSS', 'Bootstrap', 'Vercel'],
-    description: 'A website rehaul for the nonprofit I co-founded. Used HTML5 + CSS, Javascript, and Bootstrap for responsive design. Middleware hosted on Vercel and backend updates are pending.',
+    description: 'A website rehaul for the nonprofit I co-founded. Used HTML5 + CSS, Javascript, and Bootstrap for responsive design. Middleware hosted on Vercel. Backend updates are pending.',
   },
-  { id: 4,
+  { flipped: false,
     image: BlockedManCover,
     title: 'Blocked Man',
     demo: '#',
     repo: 'https://github.com/manfromthefog/blocked-man',
     skills: ['Unity', 'C#', 'WebGL'],
-    description: "A fun Unity game built on Skyline Survival's resource pack. You control a sphere in third person and must precisely avoid obstacles to reach the end. WebGL build is present but not active.",
+    description: "A fun Unity game built on Skyline Survival's resource pack. You control a sphere in third person and must precisely avoid obstacles to reach the end. Powerups are available! WebGL build is present but not active.",
   },
-  { id: 5,
+  { flipped: false,
     image: ConnectFourCover,
     title: 'Connect 4 AI',
     demo: '#',
@@ -252,31 +252,41 @@ const ProjectList = [
     description: 'A very basic implementation of the minimax AI algorithm in Connect 4. Graphics powered by Java Swing and JPanel. The AI features adjustable depth and is suprisingly good for its simplicity.',
   },
   
-  { id: 6,
+  { flipped: false,
     image: ContainmentCover,
     title: 'Containment',
     demo: '#',
     repo: 'https://github.com/manfromthefog/Containment-1',
     skills: ['Django', 'CSS', 'HTML5'],
-    description: 'My first full-stack HTML5 web application built using Django, featuring several forms, basic CSS, Django middleware and a SQLite database. In a future I plan on implementing a UI rehaul.',
+    description: 'My first full-stack HTML5 web application, featuring a form, basic CSS, Django middleware and a SQL database powered by a not-so-legal third party API (a bit of hacking was necessary). Hence, I shut the app down.',
   },
-  { id: 7,
+  { flipped: false,
     image: RuralIrrigationCover,
     title: 'Rural Irrigation',
     demo: '#',
     repo: 'https://github.com/manfromthefog/Rural-Irrigation',
     skills: ['Python',],
-    description: "A Python program for monitoring irrigation progress for water-deficient areas. It uses a simple GUI to display the status of the irrigation system. It won first place in 2024 I/O Labs Hack for Humanity Hackathon.",
+    description: "A Python program for monitoring irrigation progress for water-deficient areas. It uses a simple GUI to display the complete status of the irrigation system. It won first place in 2024 I/O Labs Hack for Humanity Hackathon.",
   },
-  { id: 8,
+  { flipped: false,
     image: FarlandsCover,
     title: 'Limitless: A Farlands Story',
     demo: '#',
     repo: '#',
     skills: ['Forge API', 'C++',],
-    description: 'A minecraft horror mod / ARG loosely inspired by the Far Land Anomaly and the Backrooms. Features a new procedurally generated dimension. The project is pending for development.',
+    description: 'A minecraft horror mod / ARG loosely inspired by the Far Land Anomaly and the Backrooms. Features a new procedurally generated dimension. The lore extends beyond the mod itself. The project is pending for development.',
   },
-];
+]);
+
+function flipCard(index) {
+  ProjectList.value[index].flipped = !ProjectList.value[index].flipped;
+}
+
+function flipAll(state) {
+  ProjectList.value.forEach(project => {
+    project.flipped = state;
+  });
+}
 </script>
 
 <template>
@@ -309,13 +319,9 @@ const ProjectList = [
         <ProjectCard
           v-for="(project, index) in ProjectList"
           :key="index"
-          :image="project.image"
-          :title="project.title"
-          :demo="project.demo"
-          :repo="project.repo"
-          :skills="project.skills"
-          :description="project.description"
-          class="bg-white rounded-xl border-gray-200 border-[0.5px] shadow-md transition duration-300 hover:shadow-xl">
+          :project="project"
+          @flip="flipCard(index)"
+          class=" transition duration-300">
         </ProjectCard>
       </div>
     </section>
@@ -372,4 +378,5 @@ const ProjectList = [
 .cursor-box:hover::before {
   transform: translateX(100%);
 }
+
 </style>
