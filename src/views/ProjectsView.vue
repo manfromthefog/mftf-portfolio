@@ -87,7 +87,7 @@ import Youth2 from '../assets/events/8/youth2.jpg'
 import Youth3 from '../assets/events/8/youth3.jpg'
 import Youth4 from '../assets/events/8/youth4.jpg'
 import Youth5 from '../assets/events/8/youth5.jpg'  
-const timelineEntries = [
+const timelineEntries = ref([
   {
     time: 'June 15, 2025',
     event: 'LinkCC Autonomous Vehicle Sprint',
@@ -198,7 +198,7 @@ const timelineEntries = [
       Youth5,
     ],
   },
-];
+]);
 
 import SkylineSurvivalCover from '../assets/projects/skylinesurvival.png'
 import PortfolioCover from '../assets/projects/portfolio.png'
@@ -331,13 +331,10 @@ function flipAll(state) {
     <h1 class="text-5xl font-bold mb-5">Timeline</h1>
     <div class="flex flex-col items-start">
       <TimelineEntry
-        v-for="(entry, idx) in timelineEntries"
-        :key="idx"
-        :time="entry.time"
-        :event="entry.event"
-        :images="entry.images"
-        style="opacity: 1; transform: none;"
-      >
+        v-for="(entry, id) in timelineEntries"
+        :key="id"
+        :timeline="entry"
+        style="opacity: 1; transform: none;">
         <template #description>
           <component :is="entry.description" />
         </template>
