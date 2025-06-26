@@ -1,50 +1,52 @@
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, defineEmits } from 'vue';
 
 const props = defineProps({
-  image: String,
-  title: String,
-  demo: String,
-  repo: String,
-  skills: Array,
-  description: String,
+  project: Object,
+  index: Number,
 });
+const emit = defineEmits(['flip']);
 </script>
 
 <template>
-  <div class="bg-white overflow-hidden shadow-md transition duration-300 hover:shadow-xl group">
-    <!-- Project Image -->
-    <div class="h-80 w-full bg-cover blur-xs grayscale group-hover:filter-none transition-filter duration-300" :style="`background-image: url(${image})`"></div>
-    <div class="p-4 border-y-2 border-gray-300">
-      <div class="text-2xl mb-3">{{ title }}</div>
-      <!-- Skills Pills -->
-      <div class="flex flex-wrap gap-2 ">
-        <span v-for="(skill, index) in skills" :key="index" class="bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full">
-          {{ skill }}
-        </span>
+  <div class="relative w-full h-[450px] perspective cursor-pointer" @click="emit('flip', index)">
+    <div
+      class="absolute inset-0 transition-transform duration-500 preserve-3d"
+      :class="{ 'rotate-y-180': project.flipped }">
+      <!-- Front -->
+      <div class="absolute inset-0 bg-white backface-hidden shadow-md transition-all duration-500 hover:shadow-xl rounded-xl overflow-hidden flex flex-col">
+        <div class="h-full w-full bg-cover bg-center" :style="`background-image: url(${project.image})`"></div>
+        <div class="p-4 border-t-2 border-gray-300 flex-1 flex flex-col">
+          <div class="text-2xl mb-3">{{ project.title }}</div>
+          <div class="flex flex-wrap gap-2 mb-2">
+            <span
+              v-for="(skill, idx) in project.skills"
+              :key="idx"
+              class="bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full"
+            >{{ skill }}</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-4 border-t-2 p-4">
+            <a v-if="project.demo" :href="project.demo" target="_blank" class="text-gray-400 hover:text-blue-500 relative link-underline">Demo &#8599;</a>
+            <a v-if="project.repo" :href="project.repo" target="_blank" class="text-gray-400 hover:text-blue-500 relative link-underline">Repo &#8599;</a>
+          </div>
       </div>
-    </div>
-
-    <!-- Description -->
-    <div class=" border-t-gray-300 p-5">{{ description }}</div>
-    <div class="inline-flex items-center justify-start gap-4 w-full p-4 border-t-2 border-gray-300">
-      <a
-        v-if="demo"
-        :href="demo"
-        target="_blank"
-        class="relative text-gray-400 transition-colors duration-200 hover:text-blue-500 link-underline"
-        >Demo &#8599;</a>
-      <a
-        v-if="repo"
-        :href="repo"
-        target="_blank"
-        class="relative text-gray-400 transition-colors duration-200 hover:text-blue-500 link-underline"
-        >Repository &#8599;</a>
+      <!-- Back -->
+      <div class="absolute inset-0 bg-white transition-all duration-500 hover:shadow-xl backface-hidden rotate-y-180 shadow-md rounded-xl overflow-auto flex flex-col">
+        <div class="p-[5rem] flex-1 flex justify-center text-justify">
+          <span>{{ project.description }}</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.perspective { perspective: 1000px; }
+.preserve-3d { transform-style: preserve-3d; }
+.backface-hidden { backface-visibility: hidden; }
+.rotate-y-180 { transform: rotateY(180deg); }
+
 .link-underline::after {
   content: '';
   position: absolute;
