@@ -297,12 +297,8 @@ function flipAll(state) {
       <h1 class="text-6xl font-normal mb-10">My Stack</h1>
       <!--  -->
       <div class="grid grid-cols-10 gap-12 justify-start">
-        <div
-          v-for="skill in skills"
-          :key="skill.alt"
-          class="flex flex-col gap-2 group">
-          <div
-            class="cursor-box cursor-pointer rounded-md flex items-center justify-center h-full w-full transition-transform duration-300"
+        <div v-for="skill in skills" :key="skill.alt" class="flex flex-col gap-2 group">
+          <div class="cursor-box cursor-pointer rounded-md flex items-center justify-center h-full w-full transition-transform duration-300"
             :class="{ 'active-glow': activeSkills.has(skill.alt) }"
             @click="toggleSkill(skill.alt)"
             :style="{'--shadow-color': skill.shadowColor}">
@@ -327,13 +323,14 @@ function flipAll(state) {
     </section>
   </div>
   <div class="w-[90%] bg-gray-400 h-[1px] mx-auto"></div>
-  <section class="w-full pt-[5rem] px-4 md:px-32 z-3">
-    <h1 class="text-5xl font-bold mb-5">Timeline</h1>
+  <section class="w-full pt-[5rem] pb-10 px-4 md:px-32 z-3">
+    <h1 class="text-5xl font-bold mb-10">Timeline</h1>
     <div class="flex flex-col items-start">
       <TimelineEntry
         v-for="(entry, id) in timelineEntries"
         :key="id"
         :timeline="entry"
+        class="mb-7"
         style="opacity: 1; transform: none;">
         <template #description>
           <component :is="entry.description" />
