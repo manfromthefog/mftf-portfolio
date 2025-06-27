@@ -23,7 +23,7 @@ onUnmounted(() => {
       <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" @click.self="$emit('close')"></div>
 
       <!-- Modal Container -->
-      <div class="relative bg-white w-[60%] h-[75%] rounded-lg shadow-lg z-10 overflow-hidden flex flex-col">
+      <div class="relative bg-white w-[60%] h-auto rounded-lg shadow-lg z-10 overflow-hidden flex flex-col">
         <!-- Sticky Header -->
         <div class="sticky top-0 flex justify-between items-center px-6 py-4 border-b bg-white z-20">
           <div class="w-full">
@@ -36,8 +36,8 @@ onUnmounted(() => {
         </div>
 
         <!-- Content Area -->
-        <div class="px-6 py-4 overflow-y-auto prose max-w-full mx-auto">
-          <slot />
+        <div class="p-6">
+          <slot/>
         </div>
       </div>
     </div>
