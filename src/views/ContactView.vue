@@ -78,8 +78,7 @@ const blogPosts = [
         </div>
       </div>
 
-      <BlogModal
-        v-for="post in blogPosts"
+      <BlogModal v-for="post in blogPosts" 
         :key="'modal-' + post.id"
         :show="activeModal === post.id"
         :title="post.title"
@@ -88,33 +87,33 @@ const blogPosts = [
         <component :is="post.component" />
       </BlogModal>
 
-      <BlogModal
-        :show="showQuoteModal"
-        title="Quote of the Day"
-        date="— Marianne Moore"
-        @close="showQuoteModal = false">
-        <div class="w-3/4 mx-auto mt-[10%] py-6 border-l-2 border-black">
+      <BlogModal :show="showQuoteModal" title="Quote of the Day" date="— Marianne Moore" @close="showQuoteModal = false">
+        <div class="w-3/4 mx-auto my-6 border-l-2 border-black">
           <div class="ps-10 text-8xl">“</div>
           <p class="ps-10 text-2xl -translate-y-8">
             "Diversity, controversy; tolerance" — in that "citadel of learning" we have a fort that ought to armor us well.
             Blessed is the man who “takes the risk of a decision” — asks himself the question:
             “Would it solve the problem? Is it right as I see it? Is it in the best interests of all?"
           </p>
-          <p class="ps-20">
+          <p class="ps-20 -translate-y-4">
             &mdash; <span class="italic">Blessed is the Man</span>
           </p>
         </div>
       </BlogModal>
 
-      <BlogModal
-        :show="showContactModal"
-        title="Contact Me!"
-        date=""
-        @close="showContactModal = false">
-        <div class="mx-auto mt-[10%] py-6">
-          <p>q95li@uwaterloo.ca</p>
-          <p>Will be updated soon =)</p>
-        </div>
+      <BlogModal :show="showContactModal" title="Contact Me!" date="" @close="showContactModal = false">
+        <form action="https://getform.io/f/avrydgwa" method="POST">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="fullname" placeholder="Your name..." required>
+
+            <label for="emailaddress">Email</label>
+            <input type="email" id="emailaddress" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" size="30" placeholder="@youremail.com" required/>
+
+            <label for="subject">Subject</label>
+            <textarea id="subject" name="subject" placeholder="Regarding the current geopolitical state of the world..." style="height:200px"></textarea>
+
+            <input type="submit" value="Submit" id="submit-button">
+        </form>
       </BlogModal>
     </div>
   </div>
@@ -123,5 +122,37 @@ const blogPosts = [
 <style scoped>
 .text-compressed {
   letter-spacing: -0.5px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 6px 0 16px 0;
+  resize: vertical;
+  outline: none;
+  box-sizing: border-box;
+}
+
+#submit-button {
+  background-color: #82c5e5;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease
+}
+
+#submit-button:hover {
+  background-color: #39a9dc;
+}
+input:invalid {
+  box-shadow: 0 0 5px 1px #39a9dc;
+}
+
+input:focus:invalid {
+  box-shadow: none;
 }
 </style>
