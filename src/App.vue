@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <template>
   <Navbar/>
   <!-- Static background wrapper -->
-  <div class="main-bg min-h-[calc(100vh-100px)] bg-[url(/src/assets/background.jpg)] bg-fixed">
+  <div class="main-bg min-h-[120vh] bg-[url(/src/assets/background.jpg)] bg-fixed">
     <transition
       name="fade"
       mode="out-in"
