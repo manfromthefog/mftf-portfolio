@@ -15,7 +15,7 @@ const socialLinks = [
 </script>
 
 <template>
-  <div class="flex flex-col relative">
+  <div class="flex flex-col relative min-h-[120vh]">
     <section class="flex items-start justify-center relative mx-auto w-full mt-5">
       <div class="flex flex-col md:flex-row w-full items-center">
         <!-- Left: Text Column -->
