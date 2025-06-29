@@ -46,7 +46,7 @@ const blogPosts = [
 </script>
 
 <template>
-  <div class="min-h-[calc(100vh-150px)] mt-12">
+  <div class="min-h-[120vh] mt-12">
     <div class="w-[70%] pb-[5%] mx-auto">
       <h1 class="text-6xl font-bold mb-4">The Fog</h1>
       <h5 class="italic mb-8">oh look, you found it. you really found it.</h5>
