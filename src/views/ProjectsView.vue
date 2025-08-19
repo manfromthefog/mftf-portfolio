@@ -197,13 +197,13 @@ const timelineEntries = ref([
     },
 ]);
 
-import SkylineSurvivalCover from '../assets/Projects/skylinesurvival.png'
-import PortfolioCover from '../assets/Projects/personalweb.png'
-import ChinookCuriosityCentralCover from '../assets/Projects/chinookcuriosity.png'
-import BlockedManCover from '../assets/Projects/blockedman.png'
-import ConnectFourCover from '../assets/Projects/connect4.png'
-import ContainmentCover from '../assets/Projects/withermancy.png'
-import FarlandsCover from '../assets/Projects/farlands.png'
+import SkylineSurvivalCover from '../assets/projects/skylinesurvival.png'
+import PortfolioCover from '../assets/projects/personalweb.png'
+import ChinookCuriosityCentralCover from '../assets/projects/chinookcuriosity.png'
+import BlockedManCover from '../assets/projects/blockedman.png'
+import ConnectFourCover from '../assets/projects/connect4.png'
+import ContainmentCover from '../assets/projects/withermancy.png'
+import FarlandsCover from '../assets/projects/farlands.png'
 
 const ProjectList = ref([
     {   rotation: 0,
