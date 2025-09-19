@@ -36,22 +36,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <style scoped>
 .main-bg {
-  position: relative;
-  z-index: 1;
+    position: relative;
+    z-index: 1;
 }
 .footer {
-  position: fixed;
-  z-index: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+    position: fixed;
+    z-index: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease;
 }
 .fade-enter-from,
 .fade-leave-to {
-  opacity: 0;
+    opacity: 0;
 }
 </style>

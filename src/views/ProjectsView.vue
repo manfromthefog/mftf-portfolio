@@ -203,7 +203,6 @@ import ChinookCuriosityCentralCover from '../assets/projects/chinookcuriosity.pn
 import BlockedManCover from '../assets/projects/blockedman.png'
 import ConnectFourCover from '../assets/projects/connect4.png'
 import ContainmentCover from '../assets/projects/withermancy.png'
-import FarlandsCover from '../assets/projects/farlands.png'
 
 const ProjectList = ref([
     {   rotation: 0,
@@ -260,15 +259,6 @@ const ProjectList = ref([
         repo: 'https://github.com/manfromthefog/Containment-1',
         skills: ['Django', 'CSS', 'HTML', 'SQL'],
         description: 'My very first full-stack web application built on Django, featuring a form, basic CSS, and a SQL database. I sunset the application due to backend security concerns.',
-    },
-    {   rotation: 0,
-        flipped: false,
-        image: FarlandsCover,
-        title: 'Limitless: A Farlands Story',
-        demo: '#',
-        repo: '#',
-        skills: ['Forge API', 'C++',],
-        description: 'A minecraft horror mod / ARG loosely inspired by the Far Land Anomaly and the Backrooms. Features a new procedurally generated dimension. The lore extends beyond the mod itself. The project is pending for development.',
     },
 ]);
 

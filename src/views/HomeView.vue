@@ -1,4 +1,6 @@
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+
 import ContactEntry from '../components/Contacts.vue';
 import InlineEntry from '../components/Inline.vue';
 
@@ -10,11 +12,70 @@ import instagramicon from '../assets/icons/instagram.svg';
 import waterloologo from '../assets/logos/uwaterloo.png';
 
 const contactinfo = [
-  { src: linkedinicon, alt: 'LinkedIn', href: 'https://www.linkedin.com/in/qinkai-li-40198b31a/' },
-  { src: githubicon, alt: 'GitHub', href: 'https://github.com/manfromthefog' },
-  { src: youtubeicon, alt: 'YouTube', href: 'https://www.youtube.com/@thepropertytheygiveyou' },
-  { src: instagramicon, alt: 'Instagram', href: 'https://www.instagram.com/qlil_0112/' },
+    { src: linkedinicon, alt: 'LinkedIn', href: 'https://www.linkedin.com/in/qinkai-li-40198b31a/' },
+    { src: githubicon, alt: 'GitHub', href: 'https://github.com/manfromthefog' },
+    { src: youtubeicon, alt: 'YouTube', href: 'https://www.youtube.com/@thepropertytheygiveyou' },
+    { src: instagramicon, alt: 'Instagram', href: 'https://www.instagram.com/qlil_0112/' },
 ];
+
+const socialLinksOffset = ref(0);
+const updateSocialLinksPosition = () => {
+    // Get DOM elements first since #app is mounted onto a dev
+    const appElement = document.querySelector('#app');
+    const placeholder = document.querySelector('.placeholder');
+
+    // Early return if either some element doesn't exist
+    // Defensive programming measure
+
+    if (!appElement || !placeholder) return;
+
+    const viewportHeight = window.innerHeight;
+    const scrollPosition = appElement.scrollTop;
+    const documentHeight = appElement.scrollHeight;
+    
+    // Use the placeholder to our advantage
+    // Get relative position
+    const placeholderRect = placeholder.getBoundingClientRect();
+
+    // Calculate how much of the placeholder is in the viewport
+    const visibleAmount = Math.max(0, 
+        Math.min(
+            placeholder.offsetHeight, // max possible
+            viewportHeight - placeholderRect.top // actual visible amount
+        )
+    );
+
+    // Debugging, check in console to see things change real-time
+    // use :style = { transform: `translateY(${...offset..})px`} to apply smooth css translation
+    console.log({
+        viewportHeight,
+        scrollPosition,
+        documentHeight,
+        placeholderRect,
+    });
+    console.log('Visible footer:', visibleAmount);
+    console.log('Will translate by:', -visibleAmount + 'px');
+
+    socialLinksOffset.value = visibleAmount;
+}
+
+onMounted(() => {
+    const appElement = document.querySelector('#app');
+    if (appElement) {
+        appElement.addEventListener('scroll', updateSocialLinksPosition);
+        window.addEventListener('resize', updateSocialLinksPosition);
+        updateSocialLinksPosition();
+    }
+    
+})
+
+onUnmounted(() => {
+    const appElement = document.querySelector('#app');
+    if (appElement) {
+        appElement.removeEventListener('scroll', updateSocialLinksPosition);
+        window.removeEventListener('resize', updateSocialLinksPosition);
+    }
+})
 </script>
 
 <template>
@@ -29,7 +90,7 @@ const contactinfo = [
                             <span class="absolute -bottom-1 -right-1 text-4xl shake-hover">👋</span>
                         </div>
                         <div>
-                            <h1 class="text-5xl font-normal mb-2">Man From The Fog</h1>
+                            <h1 class="2xl:text-5xl text-4xl font-normal mb-2">Man From The Fog</h1>
                             <h3 class="text-3xl font-normal mb-2">(aka. Qinkai Li)</h3>
                         </div>
                     </div>
@@ -38,7 +99,7 @@ const contactinfo = [
                         <!-- Introduction -->
                         <div class="flex flex-col gap-3">
                             <p class="inline">
-                            I'm an incoming first year intending to study <InlineEntry :logo="waterloologo" color="yellow" href="https://uwaterloo.ca/future-students/programs/software-engineering">Software Engineering</InlineEntry> at the University of Waterloo. I'm an engineer, but also a visionary and advocate.
+                            I'm a first year studying    <InlineEntry :logo="waterloologo" color="yellow" href="https://uwaterloo.ca/future-students/programs/software-engineering">Software Engineering</InlineEntry> at the University of Waterloo. I'm an engineer, but also a visionary and advocate.
                             </p>
                             <p class="inline">
                             In high school, I led three organizations and played an executive role in many others. I became interested in developing web solutions in the process.
@@ -51,7 +112,7 @@ const contactinfo = [
                             </p>
                         </div>
                         <!-- Social Media Links -->
-                        <div class="fixed top-[35%] left-8 z-50 items-start hidden lg:flex flex-col gap-10">
+                        <div class="fixed top-[35%] left-8 z-50 items-start hidden lg:flex flex-col gap-10 social-links-transform" :style="{ transform: `translateY(-${socialLinksOffset}px)` }">
                             <ContactEntry v-for="link in contactinfo" :key="link.href" :src="link.src" :alt="link.alt" :href="link.href"/>
                         </div>
                     </div>
@@ -66,6 +127,10 @@ const contactinfo = [
     0%, 100% { transform: rotate(0deg); }
     25% { transform: rotate(-15deg); }
     75% { transform: rotate(15deg); }
+}
+
+.social-links-transform {
+    transition: transform 0.8s cubic-bezier(0.01, 0.01, 0.01, 1);
 }
 
 .shake-hover {

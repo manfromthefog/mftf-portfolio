@@ -4,6 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+    background-color: black;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+#app {
+    height: 100%;
+    overflow-y: auto;
+    overscroll-behavior: none;
+    position: fixed;
+    -webkit-overflow-scrolling: touch; /* keeps momentum scrolling */
+}
+
 :root {
   font-family: 'DM Sans', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -78,7 +92,6 @@
   pointer-events: none;
   user-select: none;
 }
-
 /*** Text Styles ***/
 body {
   margin: 0;
