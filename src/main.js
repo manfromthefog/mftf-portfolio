@@ -4,6 +4,7 @@ import App from './App.vue'
 import './style.css'
 import { inject } from '@vercel/analytics'
 
+
 inject();
 router.afterEach(() => {
     if (window.va) {

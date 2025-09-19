@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { SpeedInsights } from '@vercel/speed-insights/vue';
 
 import ContactEntry from '../components/Contacts.vue';
 import InlineEntry from '../components/Inline.vue';
@@ -79,6 +80,7 @@ onUnmounted(() => {
 </script>
 
 <template>
+    <SpeedInsights/>
     <div class="flex flex-col relative min-h-[90vh] justify-center">
         <section class="flex items-center justify-center relative mx-auto w-full mt-[-12rem]">
             <!-- Left: Text Column -->
