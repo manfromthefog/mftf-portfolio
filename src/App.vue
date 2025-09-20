@@ -1,37 +1,40 @@
 <script setup>
+import { onMounted, nextTick } from 'vue'
 import Navbar from './components/Navbar.vue'
 import Footer from './components/Footer.vue'
 
-document.addEventListener("DOMContentLoaded", function() {
+const updateHeight = () => {
     const placeholder = document.querySelector('.placeholder')
     const footer = document.querySelector('.footer')
 
-    function updateHeight() {
-        if (footer && placeholder) {
-        // Use computed style for more accuracy
-        const computedHeight = getComputedStyle(footer).height
-            placeholder.style.height = computedHeight
-        }
+    if (footer && placeholder) {
+        // Use computed style
+        const computedHeight = getComputedStyle(footer).height;
+        placeholder.style.height = computedHeight;
     }
+}
 
-    window.addEventListener('resize', updateHeight)
-    window.addEventListener('load', updateHeight)
+onMounted(async() => {
+    await nextTick()
     updateHeight()
+
+    window.addEventListener('resize', updateHeight);
+    window.addEventListener('load', updateHeight);
 })
 </script>
 
 <template>
-  <!-- Static background wrapper -->
-  <div class="main-bg bg-[url(/src/assets/background.jpg)] bg-fixed text-white">
-    <Navbar/>
-    <transition name="fade" mode="out-in" @before-enter="handleBeforeEnter" @after-enter="handleAfterEnter">
-      <RouterView v-slot="{ Component }">
-        <component :is="Component" />
-      </RouterView>
-    </transition>
-  </div>
-  <div class="placeholder"></div>
-  <Footer class="footer"/>
+    <!-- Static background wrapper -->
+    <div class="main-bg bg-[url(/src/assets/background.jpg)] bg-fixed text-white">
+        <Navbar/>
+        <transition name="fade" mode="out-in" @before-enter="handleBeforeEnter" @after-enter="handleAfterEnter">
+        <RouterView v-slot="{ Component }">
+            <component :is="Component" />
+        </RouterView>
+        </transition>
+    </div>
+    <div class="placeholder"></div>
+    <Footer class="footer"/>
 </template>
 
 <style scoped>

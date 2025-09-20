@@ -30,55 +30,55 @@ const contacts = [
 ]
 
 const socialIcons = [
-  { href: 'https://www.linkedin.com/in/qinkai-li-40198b31a/', src: linkedinIcon, alt: 'linkedin' },
-  { href: 'https://github.com/manfromthefog', src: githubIcon, alt: 'GitHub' },
-  { href: 'https://www.youtube.com/@thepropertytheygiveyou', src: youtubeIcon, alt: 'youtube' },
-  { href: 'https://www.instagram.com/kailiovermind0112/', src: instagramIcon, alt: 'instagram' },
+    { href: 'https://www.linkedin.com/in/qinkai-li-40198b31a/', src: linkedinIcon, alt: 'linkedin' },
+    { href: 'https://github.com/manfromthefog', src: githubIcon, alt: 'GitHub' },
+    { href: 'https://www.youtube.com/@thepropertytheygiveyou', src: youtubeIcon, alt: 'youtube' },
+    { href: 'https://www.instagram.com/kailiovermind0112/', src: instagramIcon, alt: 'instagram' },
 ]
 </script>
 
 <template>
-  <div class="footer-container">
-    <footer class="main-footer">
-      <div class="footer-content mx-auto">
-        <div class="footer-left">
-          <img src="/src/assets/manfromthefog.jpg" alt="Company Logo" class="footer-logo w- polaroid-inversion rounded-3xl">
-          <ul>
-            <li v-for="contact in contacts" :key="contact.type">
-              <a :href="contact.link" target="_blank" class="group relative inline-flex items-center transition duration-300 gap-0.5 px-1" data-hover-color="purple">
-                <img class="mr-1 h-3 w-auto duration-200 inversion" :src="contact.icon">
-                <p class="z-40 text-white text-opacity-100">{{ contact.text }}</p>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="footer-right border-l-4 border-white">
-          <div class="ms-5">
-            <div class="top-row mb-[20px]">
-              <div class="footer-nav mb-3">
-                <router-link to="/" class="nav-link">Home</router-link>
-                <router-link to="/projects" class="nav-link">Projects</router-link>
-                <router-link to="/contact" class="nav-link">Contact</router-link>
-              </div>
-              <div class="footer-nav">
-                <a v-for="icon in socialIcons" :key="icon.href + icon.src" :href="icon.href" target="_blank"><img :src="icon.src" :alt="icon.alt" class="github-icon w-[24px] h-[24px] inversion"></a>
-              </div>
+    <div class="footer-container">
+        <footer class="main-footer">
+            <div class="footer-content mx-auto">
+                <div class="footer-left">
+                    <img src="/src/assets/manfromthefog.jpg" alt="Company Logo" class="footer-logo w- polaroid-inversion rounded-3xl">
+                    <ul>
+                        <li v-for="contact in contacts" :key="contact.type">
+                            <a :href="contact.link" target="_blank" class="group relative inline-flex items-center transition duration-300 gap-0.5 px-1" data-hover-color="purple">
+                                <img class="mr-1 h-3 w-auto duration-200 inversion" :src="contact.icon">
+                                <p class="z-40 text-white text-opacity-100">{{ contact.text }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-right md:border-l-4 border-white">
+                    <div class="ms-5">
+                        <div class="top-row mb-[20px]">
+                            <div class="footer-nav mb-3">
+                                <router-link to="/" class="nav-link">Home</router-link>
+                                <router-link to="/projects" class="nav-link">Projects</router-link>
+                                <router-link to="/contact" class="nav-link">Contact</router-link>
+                            </div>
+                            <div class="footer-nav">
+                                <a v-for="icon in socialIcons" :key="icon.href + icon.src" :href="icon.href" target="_blank"><img :src="icon.src" :alt="icon.alt" class="github-icon w-[24px] h-[24px] inversion"></a>
+                            </div>
+                        </div>
+                        <div class="border-y-2 border-white py-3 flex items-center">
+                            <a href="https://se-webring.xyz/" target="_blank" class="group relative inline-flex items-center transition duration-300 gap-0.5 px-1" data-hover-color="purple">
+                                <img class="mr-1 h-10 w-auto inversion " src="/src/assets/icons/webring.svg">
+                                <p>University of Waterloo Software Engineering Webring</p>
+                            </a>
+                        </div>
+                        <div class="mt-[20px]">
+                            <p class="text-sm">Copyright © 2025 Man From The Fog. Some rights reserved.</p>
+                            <p class="text-sm">Contents distributed under CC BY-SA 4.0.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="border-y-2 border-white py-3 flex items-center">
-              <a href="https://se-webring.xyz/" target="_blank" class="group relative inline-flex items-center transition duration-300 gap-0.5 px-1" data-hover-color="purple">
-                <img class="mr-1 h-10 w-auto inversion " src="/src/assets/icons/webring.svg">
-                <p>University of Waterloo Software Engineering Webring</p>
-              </a>
-            </div>
-            <div class="mt-[20px]">
-              <p class="text-sm">Copyright © 2025 Man From The Fog. Some rights reserved.</p>
-              <p class="text-sm">Contents distributed under CC BY-SA 4.0.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </div>
+        </footer>
+    </div>
 </template>
 
 <style scoped>

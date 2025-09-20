@@ -23,9 +23,9 @@
                 <div class="fixed inset-0 bg-black/25 backdrop-blur-xs" @click.self="$emit('close')"></div>
 
                 <!-- Modal Container -->
-                <div class="relative backdrop-blur-xl w-[50%] h-auto rounded-lg shadow-lg z-10 overflow-hidden flex flex-col">
+                <div class="relative backdrop-blur-xl w-[50%] h-[75%] rounded-lg shadow-lg z-10 flex flex-col">
                     <!-- Sticky Header -->
-                    <div class="sticky top-0 flex justify-between items-center px-6 py-4 border-b z-20">
+                    <div class="top-0 flex bg-[inherit] justify-between items-center px-6 py-4 border-b z-20">
                         <div class="w-full">
                             <h2 class="text-2xl font-bold leading-tight">{{ title }}</h2>
                             <p class="text-sm text-gray-200 mt-1">{{ date }}</p>
@@ -36,7 +36,7 @@
                     </div>
 
                     <!-- Content Area -->
-                    <div class="p-6">
+                    <div class="p-6 overflow-y-auto">
                         <slot/>
                     </div>
                 </div>

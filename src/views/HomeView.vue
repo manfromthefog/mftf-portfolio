@@ -92,7 +92,7 @@ onUnmounted(() => {
                             <span class="absolute -bottom-1 -right-1 text-4xl shake-hover">👋</span>
                         </div>
                         <div>
-                            <h1 class="2xl:text-5xl text-4xl font-normal mb-2">Man From The Fog</h1>
+                            <h1 class="2xl:text-5xl md:text-4xl text-3xl font-normal mb-2">Man From The Fog</h1>
                             <h3 class="text-3xl font-normal mb-2">(aka. Qinkai Li)</h3>
                         </div>
                     </div>

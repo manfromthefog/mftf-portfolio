@@ -10,25 +10,23 @@ const showQuoteModal = ref(false)
 const showContactModal = ref(false)
 
 const blogPosts = [
-    {   id: "post1",
-        date: 'August 4, 2025',
-        title: 'Expectations',
-        summary: "What's next?",
-        component: Content1,
+    {   id: "post3",
+        date: 'September 20, 2025',
+        title: 'The Nature of Hope',
+        summary: "How do random things suddenly turn definite?",
+        component: Content3,
     },
     {   id: "post2",
-        date: 'June 28, 2025',
-        title: 'Moving On',
-        summary: "The end of high school.",
-        content: "Hello2",
+        date: 'September 18, 2025',
+        title: 'Zooming In and Out',
+        summary: "Chaos and order are not antonyms.",
         component: Content2,
     },
-    {   id: "post3",
-        date: 'June 7, 2024',
-        title: 'Collective Knowledge',
-        summary: "Shaping the future of the world.",
-        content: "Hello3",
-        component: Content3,
+    {   id: "post1",
+        date: 'August 4, 2024',
+        title: 'Nothing is Happening Anymore',
+        summary: "What happened to our childhoods?",
+        component: Content1,
     },
 ]
 </script>
@@ -93,7 +91,7 @@ const blogPosts = [
                     <input type="email" id="emailaddress" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" size="30" placeholder="@youremail.com" required/>
 
                     <label for="subject">Subject</label>
-                    <textarea id="subject" name="subject" placeholder="Interesting..." style="height:200px;"></textarea>
+                    <textarea id="subject" name="subject" placeholder="Interesting..." style="height:141px;"></textarea>
 
                     <input type="submit" value="Submit" id="submit-button">
                 </form>
